@@ -1,0 +1,4 @@
+Virtual Pool;React;/home/administrador/gitValidacao/2021-VirtualPool/Front end/src;/home/administrador/gitValidacao/2021-VirtualPool/gerado/src/main/webapp
+components/Header
+pages
+;;;;
