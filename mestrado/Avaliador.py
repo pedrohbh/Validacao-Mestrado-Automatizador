@@ -1,6 +1,15 @@
 import os
 from pathlib import Path
 
+def avaliaReact(arquivo):
+    print(arquivo)
+
+def avaliaVueJS(arquivo):
+    print(arquivo)
+
+def avaliaAngular(arquivo):
+    print(arquivo)
+
 arquivoEntrada = open("/home/administrador/Documentos/Python/automate/mestrado/Lista.txt", "r", newline='')
 numero = 0
 
@@ -18,7 +27,8 @@ for linha in arquivoEntrada:
 
         for foldername, subfolders, filenames in os.walk(pasta):
             for filename in filenames:
-                print(filename)
+                if ( linguagem == "React" and (filename.endswith(".js") or filename.endswith(".jsx") ) ):
+                    avaliaReact(filename)
 
 
 arquivoEntrada.close()
