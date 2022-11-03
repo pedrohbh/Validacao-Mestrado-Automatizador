@@ -15,11 +15,17 @@ def avaliaReact(pastaBase, nomeArquivo):
     texto = regexSeta.sub("", texto)
 
     matchesOriginal = []
+    matchesGerado = []
     
     regexTags = re.compile(r'(<[^>]*>)')
     for groups in regexTags.findall(texto):
-        print(groups)
+        #print(groups)
         matchesOriginal.append(groups)
+
+    # Remoção das duplicatas
+    for elemento in matchesOriginal:
+        if "/>" in elemento:
+            print(elemento)
 
     
 
