@@ -1,8 +1,17 @@
-import os
+import os, re
 from pathlib import Path
 
-def avaliaReact(arquivo):
-    print(arquivo)
+def avaliaReact(nomeArquivo):
+    print(f'Nome do Arquivo: {nomeArquivo}')
+    arquivo = open(nomeArquivo)
+    texto = arquivo.read()
+    print(texto)
+
+    arquivo.close()
+
+    #regexSeta = re.compile(r"=>")
+    #regexSeta.sub("")
+
 
 def avaliaVueJS(arquivo):
     print(arquivo)
@@ -27,8 +36,10 @@ for linha in arquivoEntrada:
 
         for foldername, subfolders, filenames in os.walk(pasta):
             for filename in filenames:
+                nomeArquivo = os.path.join(foldername, filename)
+
                 if ( linguagem == "React" and (filename.endswith(".js") or filename.endswith(".jsx") ) ):
-                    avaliaReact(filename)
+                    avaliaReact(nomeArquivo)
 
 
 arquivoEntrada.close()
