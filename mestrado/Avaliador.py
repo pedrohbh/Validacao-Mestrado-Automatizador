@@ -31,9 +31,31 @@ def avaliaReact(pastaBase, nomeArquivo):
         nomeTag = regexNomeTag.search(elemento).group(2)
         print(f'{indice} - {nomeTag}')
         
-        for novoIndice in range(indice +1, len(matchesOriginal)):
+        for novoIndice in range(indice +1, len(matchesOriginal)):            
             novoElemento = matchesOriginal[novoIndice]
+
+            bufferCartucho = 0 # Varíavel para contar quantas vezes precisa pular
+
             print(f'{novoIndice} - {novoElemento}')
+            
+            regexNomeTagReverso = re.compile(r"<(\s*)/(\w*)(\s*)>")
+            nomeTagReverso = ''
+            if regexNomeTagReverso.search(novoElemento) is not None:
+                nomeTagReverso = regexNomeTagReverso.search(novoElemento).group(2)
+            else:
+                regexNomeTagReverso = re.compile(r"<(\s*)(\w*)(\s*)/>")
+                if regexNomeTagReverso.search(novoElemento) is not None:
+                    nomeTagReverso = regexNomeTagReverso.search(novoElemento).group(2)
+                else:
+                    if nomeTag.lower() == nomeTagReverso.lower():
+                        bufferCartucho = bufferCartucho + 1
+                    continue
+            if nomeTag.lower() == nomeTagReverso.lower():
+                if bufferCartucho == 0:
+                    matchesOriginal.pop(indice)
+                    break
+                else:
+                    bufferCartucho = bufferCartucho - 1
 
 
 
