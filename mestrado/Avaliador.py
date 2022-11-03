@@ -25,7 +25,20 @@ def avaliaReact(pastaBase, nomeArquivo):
     # Remoção das duplicatas
     for elemento in matchesOriginal:
         if "/>" in elemento:
-            print(elemento)
+            continue
+        regexNomeTag = re.compile(r"<(\s*)(\w*)")
+        nomeTag = regexNomeTag.search(elemento).group(2)
+        print(nomeTag)
+
+        for elementoReverso in matchesOriginal.reverse():
+            regexNomeTagReverso = re.compile(r"<(\s*)/(\w*)(\s*)>")
+            nomeTagReverso = regexNomeTagReverso.search(elementoReverso).group(2)
+            if nomeTag == nomeTagReverso:
+                matchesOriginal.reverse().remove(elementoReverso)
+
+
+        
+        #matchesOriginal.reverse().remove()
 
     
 
