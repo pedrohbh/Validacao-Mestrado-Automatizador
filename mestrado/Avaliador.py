@@ -37,6 +37,8 @@ def avaliaReact(pastaBase, nomeArquivo):
             novoElemento = matchesOriginal[novoIndice]            
 
             print(f'{novoIndice} - {novoElemento}')
+            if "/>" in novoElemento:
+                continue
             
             regexNomeTagReverso = re.compile(r"<(\s*)/(\w*)(\s*)>")
             nomeTagReverso = ''
