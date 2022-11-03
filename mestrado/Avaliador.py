@@ -24,13 +24,23 @@ def avaliaReact(pastaBase, nomeArquivo):
 
     matchesGerado = matchesOriginal.copy()
     # Remoção das duplicatas
-    for elemento in matchesOriginal:
+    for indice, elemento in enumerate(matchesOriginal):        
         if "/>" in elemento:
             continue
         regexNomeTag = re.compile(r"<(\s*)(\w*)")
         nomeTag = regexNomeTag.search(elemento).group(2)
-        print(nomeTag)
+        print(f'{indice} - {nomeTag}')
+        
+        for novoIndice in range(indice +1, len(matchesOriginal)):
+            novoElemento = matchesOriginal[novoIndice]
+            print(f'{novoIndice} - {novoElemento}')
 
+
+
+
+
+
+        """
         for indice, elementoReverso in reversed(list(enumerate(matchesOriginal))):
             regexNomeTagReverso = re.compile(r"<(\s*)/(\w*)(\s*)>")
             nomeTagReverso = ''
@@ -45,6 +55,7 @@ def avaliaReact(pastaBase, nomeArquivo):
             if nomeTag.lower() == nomeTagReverso.lower():
                 matchesOriginal.pop(indice)
                 break
+        """
 
 
 
