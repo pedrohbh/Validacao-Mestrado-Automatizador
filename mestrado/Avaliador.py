@@ -22,6 +22,7 @@ def avaliaReact(pastaBase, nomeArquivo):
         #print(groups)
         matchesOriginal.append(groups)
 
+    matchesGerado = matchesOriginal.copy()
     # Remoção das duplicatas
     for elemento in matchesOriginal:
         if "/>" in elemento:
@@ -46,7 +47,11 @@ def avaliaReact(pastaBase, nomeArquivo):
                 break
 
 
-        
+
+    print("Original")
+    print("\n".join(matchesGerado))
+    print("Cortado")
+    print("\n".join(matchesOriginal))    
         #matchesOriginal.reverse().remove()
 
     
