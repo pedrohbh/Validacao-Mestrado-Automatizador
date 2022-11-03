@@ -13,13 +13,17 @@ def avaliaReact(pastaBase, nomeArquivo):
     # Filtragem do Texto Inicial
     regexSeta = re.compile(r"=>")
     texto = regexSeta.sub("", texto)
+
+    matchesOriginal = []
     
     regexTags = re.compile(r'(<[^>]*>)')
     for groups in regexTags.findall(texto):
         print(groups)
-        
+        matchesOriginal.append(groups)
+
     
 
+    
     arquivo.close()
 
     
