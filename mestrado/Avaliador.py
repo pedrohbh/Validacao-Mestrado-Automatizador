@@ -32,7 +32,15 @@ def avaliaReact(pastaBase, nomeArquivo):
 
         for indice, elementoReverso in reversed(list(enumerate(matchesOriginal))):
             regexNomeTagReverso = re.compile(r"<(\s*)/(\w*)(\s*)>")
-            nomeTagReverso = regexNomeTagReverso.search(elementoReverso).group(2)
+            nomeTagReverso = ''
+            if regexNomeTagReverso.search(elementoReverso) is not None:
+                nomeTagReverso = regexNomeTagReverso.search(elementoReverso).group(2)
+            else:
+                regexNomeTagReverso = re.compile(r"<(\s*)(\w*)(\s*)/>")
+                if regexNomeTagReverso.search(elementoReverso) is not None:
+                    nomeTagReverso = regexNomeTagReverso.search(elementoReverso).group(2)
+                else:
+                    continue
             if nomeTag == nomeTagReverso:
                 matchesOriginal.pop(indice)
                 break
