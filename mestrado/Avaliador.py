@@ -42,7 +42,7 @@ def avaliaReact(pastaBase, nomeArquivo):
                     nomeTagReverso = regexNomeTagReverso.search(elementoReverso).group(2)
                 else:
                     continue
-            if nomeTag == nomeTagReverso:
+            if nomeTag.lower() == nomeTagReverso.lower():
                 matchesOriginal.pop(indice)
                 break
 
