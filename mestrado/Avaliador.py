@@ -3,6 +3,11 @@ import re
 from pathlib import Path
 
 def avaliaReact(pastaBaseOriginal, nomeArquivoOriginal, pastaBaseGerado, nomeArquivoGerado):
+    tagsOriginal = 0
+    tagsOriginalFormatado = 0
+    tagsGerado = 0
+    tagsGeradoFormatado = 0
+
     print(f'Nome do Arquivo: {nomeArquivoOriginal}')
 
     nomeArquivoCompletoOriginal = os.path.join(pastaBaseOriginal, filename)
@@ -22,6 +27,8 @@ def avaliaReact(pastaBaseOriginal, nomeArquivoOriginal, pastaBaseGerado, nomeArq
         # print(groups)
         matchesOriginal.append(groups)
 
+    tagsOriginal = len(matchesOriginal)
+
     # Remoção das duplicatas
     regexTagsASeremRemovidas = re.compile(r'<(\s*)/(\w*)(\s*)>')
     matchesOriginal = [
@@ -30,7 +37,12 @@ def avaliaReact(pastaBaseOriginal, nomeArquivoOriginal, pastaBaseGerado, nomeArq
     print("Cortado")
     print("\n".join(matchesOriginal))
 
+    tagsOriginalFormatado = len(matchesOriginal)
     arquivoOriginal.close()
+
+    #Fim do tratamento do arquivo original
+
+
 
 
 def avaliaVueJS(arquivo):
