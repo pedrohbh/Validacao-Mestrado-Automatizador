@@ -1,63 +1,59 @@
-import os, re
+import os
+import re
 from pathlib import Path
+
 
 def avaliaReact(pastaBase, nomeArquivo):
     print(f'Nome do Arquivo: {nomeArquivo}')
-    
+
     nomeArquivoCompleto = os.path.join(foldername, filename)
 
     arquivo = open(nomeArquivoCompleto)
     texto = arquivo.read()
-    #print(texto)
+    # print(texto)
 
     # Filtragem do Texto Inicial
     regexSeta = re.compile(r"=>")
     texto = regexSeta.sub("", texto)
 
     matchesOriginal = []
-    matchesGerado = []
-    
+
     regexTags = re.compile(r'(<[^>]*>)')
     for groups in regexTags.findall(texto):
-        #print(groups)
+        # print(groups)
         matchesOriginal.append(groups)
 
-    matchesGerado = matchesOriginal.copy()
     # Remoção das duplicatas
 
     regexTagsASeremRemovidas = re.compile(r'<(\s*)/(\w*)(\s*)>')
-    matchesOriginal = [i for i in matchesOriginal if not regexTagsASeremRemovidas.match(i)]
-     
-    #print("Original")
-    #print("\n".join(matchesGerado))
+    matchesOriginal = [
+        i for i in matchesOriginal if not regexTagsASeremRemovidas.match(i)]
+
     print("Cortado")
-    print("\n".join(matchesOriginal))    
-        #matchesOriginal.reverse().remove()
+    print("\n".join(matchesOriginal))
 
-    
-
-    
     arquivo.close()
-
-    
 
 
 def avaliaVueJS(arquivo):
     print(arquivo)
 
+
 def avaliaAngular(arquivo):
     print(arquivo)
 
-arquivoEntrada = open("/home/administrador/Documentos/Python/automate/mestrado/Lista.txt", "r", newline='')
+
+arquivoEntrada = open(
+    "/home/administrador/Documentos/Python/automate/mestrado/Lista.txt", "r", newline='')
 numero = 0
 
 for linha in arquivoEntrada:
     linhaSplit = linha.split(";")
-    
-    nomeProjeto = linhaSplit[ 0 ]
-    linguagem = linhaSplit[ 1 ]
-    caminhoPadraoOrigem = linhaSplit[ 2 ]
-    caminhoPadraoGerado = linhaSplit[ 3 ]
+
+    nomeProjeto = linhaSplit[0]
+    linguagem = linhaSplit[1]
+    caminhoPadraoOrigem = linhaSplit[2]
+    caminhoPadraoGerado = linhaSplit[3]
     while linha.strip() != ";;;;":
         linha = arquivoEntrada.readline().strip()
         print(linha)
@@ -67,13 +63,11 @@ for linha in arquivoEntrada:
             for filename in filenames:
                 #nomeArquivo = os.path.join(foldername, filename)
 
-                if ( linguagem == "React" and (filename.endswith(".js") or filename.endswith(".jsx") ) ):
+                if (linguagem == "React" and (filename.endswith(".js") or filename.endswith(".jsx"))):
                     avaliaReact(foldername, filename)
 
 
 arquivoEntrada.close()
-
-
 
 
 """
