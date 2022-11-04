@@ -10,7 +10,7 @@ def avaliaReact(pastaBaseOriginal, nomeArquivoOriginal, pastaBaseGerado, nomeArq
 
     print(f'Nome do Arquivo: {nomeArquivoOriginal}')
 
-    nomeArquivoCompletoOriginal = os.path.join(pastaBaseOriginal, filename)
+    nomeArquivoCompletoOriginal = os.path.join(pastaBaseOriginal, nomeArquivoOriginal)
 
     arquivoOriginal = open(nomeArquivoCompletoOriginal)
     textoOriginal = arquivoOriginal.read()
@@ -41,6 +41,38 @@ def avaliaReact(pastaBaseOriginal, nomeArquivoOriginal, pastaBaseGerado, nomeArq
     arquivoOriginal.close()
 
     #Fim do tratamento do arquivo original
+
+    print(f'Nome do Arquivo: {nomeArquivoGerado}')
+
+    nomeArquivoCompletoGerado = os.path.join(pastaBaseGerado, nomeArquivoGerado)
+
+    arquivoGerado = open(nomeArquivoCompletoGerado)
+    textoGerado = arquivoGerado.read()
+    # print(texto)
+
+    # Filtragem do Texto Inicial
+    #regexSeta = re.compile(r"=>")
+    textoGerado = regexSeta.sub("", textoGerado)
+
+    matchesGerado = []
+
+    #regexTags = re.compile(r'(<[^>]*>)')
+    for groups in regexTags.findall(textoGerado):
+        # print(groups)
+        matchesGerado.append(groups)
+
+    tagsGerado = len(matchesGerado)
+
+    # Remoção das duplicatas
+    #regexTagsASeremRemovidas = re.compile(r'<(\s*)/(\w*)(\s*)>')
+    matchesGerado = [
+        i for i in matchesGerado if not regexTagsASeremRemovidas.match(i)]
+
+    print("Cortado")
+    print("\n".join(matchesGerado))
+
+    tagsGeradoFormatado = len(matchesGerado)
+    arquivoGerado.close()
 
 
 
