@@ -3,11 +3,16 @@ import re
 import csv
 from pathlib import Path
 
+def calculaPortcentagem(gerado, total):
+    return round((gerado / total) * 100, 2)
+
 def avaliaReact(pastaBaseOriginal, nomeArquivoOriginal, pastaBaseGerado, nomeArquivoGerado, nomeProjeto, outputDictWriter):
     tagsOriginal = 0
     tagsOriginalFormatado = 0
     tagsGerado = 0
     tagsGeradoFormatado = 0
+    pocentagem = 0.0
+    porcentagemFormatado = 0.0
 
     print(f'Nome do Arquivo: {nomeArquivoOriginal}')
 
@@ -75,6 +80,10 @@ def avaliaReact(pastaBaseOriginal, nomeArquivoOriginal, pastaBaseGerado, nomeArq
     tagsGeradoFormatado = len(matchesGerado)
     arquivoGerado.close()
 
+    # Calcula porcentagens
+    pocentagem = calculaPortcentagem(tagsGerado, tagsOriginal)
+    porcentagemFormatado = calculaPortcentagem(tagsGeradoFormatado, tagsOriginalFormatado)
+
     #Escreve arquivo
     
     
@@ -96,7 +105,7 @@ arquivoEntrada = open(
 numero = 0
 
 outputFile = open('output.csv', 'w', newline='')
-outputDictWriter = csv.DictWriter(outputFile, ['Projeto', 'Arquivo', 'TagsOriginal', 'TagsOriginalFormatado', 'TagsGerado', 'TagsGeradoFormatado'])
+outputDictWriter = csv.DictWriter(outputFile, ['Projeto', 'Arquivo', 'TagsOriginal', 'TagsGerado', 'TagsOriginalFormatado',  'TagsGeradoFormatado'])
 outputDictWriter.writeheader()
 
 for linha in arquivoEntrada:
