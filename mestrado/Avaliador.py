@@ -24,67 +24,12 @@ def avaliaReact(pastaBase, nomeArquivo):
 
     matchesGerado = matchesOriginal.copy()
     # Remoção das duplicatas
-    for indice, elemento in enumerate(matchesOriginal):        
-        if "/>" in elemento:
-            continue
-        regexNomeTag = re.compile(r"<(\s*)(\w*)")
-        nomeTag = regexNomeTag.search(elemento).group(2)
-        print(f'{indice} - {nomeTag}')
-        
-        bufferCartucho = 0 # Varíavel para contar quantas vezes precisa pular
 
-        for novoIndice in range(indice +1, len(matchesOriginal)):            
-            novoElemento = matchesOriginal[novoIndice]            
-
-            print(f'{novoIndice} - {novoElemento}')
-            if "/>" in novoElemento:
-                continue
-            
-            regexNomeTagReverso = re.compile(r"<(\s*)/(\w*)(\s*)>")
-            nomeTagReverso = ''
-            if regexNomeTagReverso.search(novoElemento) is not None:
-                nomeTagReverso = regexNomeTagReverso.search(novoElemento).group(2)
-            else:
-                regexNomeTagReverso = re.compile(r"<(\s*)(\w*)(\s*)/>")
-                if regexNomeTagReverso.search(novoElemento) is not None:
-                    nomeTagReverso = regexNomeTagReverso.search(novoElemento).group(2)
-                else:
-                    if regexNomeTag.search(novoElemento) is not None and nomeTag.lower() == regexNomeTag.search(novoElemento).group(2).lower():
-                        bufferCartucho = bufferCartucho + 1
-                    continue
-            if nomeTag.lower() == nomeTagReverso.lower():
-                if bufferCartucho == 0:
-                    matchesOriginal.pop(indice)
-                    break
-                else:
-                    bufferCartucho = bufferCartucho - 1
-
-
-
-
-
-
-        """
-        for indice, elementoReverso in reversed(list(enumerate(matchesOriginal))):
-            regexNomeTagReverso = re.compile(r"<(\s*)/(\w*)(\s*)>")
-            nomeTagReverso = ''
-            if regexNomeTagReverso.search(elementoReverso) is not None:
-                nomeTagReverso = regexNomeTagReverso.search(elementoReverso).group(2)
-            else:
-                regexNomeTagReverso = re.compile(r"<(\s*)(\w*)(\s*)/>")
-                if regexNomeTagReverso.search(elementoReverso) is not None:
-                    nomeTagReverso = regexNomeTagReverso.search(elementoReverso).group(2)
-                else:
-                    continue
-            if nomeTag.lower() == nomeTagReverso.lower():
-                matchesOriginal.pop(indice)
-                break
-        """
-
-
-
-    print("Original")
-    print("\n".join(matchesGerado))
+    regexTagsASeremRemovidas = re.compile(r'<(\s*)/(\w*)(\s*)>')
+    matchesOriginal = [i for i in matchesOriginal if not regexTagsASeremRemovidas.match(i)]
+     
+    #print("Original")
+    #print("\n".join(matchesGerado))
     print("Cortado")
     print("\n".join(matchesOriginal))    
         #matchesOriginal.reverse().remove()
