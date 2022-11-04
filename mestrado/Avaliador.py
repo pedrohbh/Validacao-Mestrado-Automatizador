@@ -2,7 +2,6 @@ import os
 import re
 from pathlib import Path
 
-
 def avaliaReact(pastaBase, nomeArquivo):
     print(f'Nome do Arquivo: {nomeArquivo}')
 
@@ -24,7 +23,6 @@ def avaliaReact(pastaBase, nomeArquivo):
         matchesOriginal.append(groups)
 
     # Remoção das duplicatas
-
     regexTagsASeremRemovidas = re.compile(r'<(\s*)/(\w*)(\s*)>')
     matchesOriginal = [
         i for i in matchesOriginal if not regexTagsASeremRemovidas.match(i)]
@@ -53,18 +51,20 @@ for linha in arquivoEntrada:
     nomeProjeto = linhaSplit[0]
     linguagem = linhaSplit[1]
     caminhoPadraoOrigem = linhaSplit[2]
-    caminhoPadraoGerado = linhaSplit[3]
+    caminhoPadraoGerado = linhaSplit[3].strip()
     while linha.strip() != ";;;;":
         linha = arquivoEntrada.readline().strip()
         print(linha)
-        pasta = str(Path(caminhoPadraoOrigem, linha))
+        pastaOriginal = str(Path(caminhoPadraoOrigem, linha))
+        pastaGerado = str(Path(caminhoPadraoGerado, linha))
 
-        for foldername, subfolders, filenames in os.walk(pasta):
+        for foldername, subfolders, filenames in os.walk(pastaOriginal):
             for filename in filenames:
-                #nomeArquivo = os.path.join(foldername, filename)
-
-                if (linguagem == "React" and (filename.endswith(".js") or filename.endswith(".jsx"))):
-                    avaliaReact(foldername, filename)
+                for foldernameGerado, subfoldersGerado, filenamesGerado in os.walk(pastaGerado):
+                    for filenameGer in filenamesGerado:
+                        if str(filename).split(".")[ 0 ].lower == str(filenameGer).split(".")[ 0 ].lower:
+                            if (linguagem == "React" and (filename.endswith(".js") or filename.endswith(".jsx"))):
+                                avaliaReact(foldername, filename)
 
 
 arquivoEntrada.close()
