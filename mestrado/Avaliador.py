@@ -11,7 +11,7 @@ def avaliaReact(pastaBaseOriginal, nomeArquivoOriginal, pastaBaseGerado, nomeArq
     tagsOriginalFormatado = 0
     tagsGerado = 0
     tagsGeradoFormatado = 0
-    pocentagem = 0.0
+    porcentagemNormal = 0.0
     porcentagemFormatado = 0.0
 
     print(f'Nome do Arquivo: {nomeArquivoOriginal}')
@@ -81,13 +81,13 @@ def avaliaReact(pastaBaseOriginal, nomeArquivoOriginal, pastaBaseGerado, nomeArq
     arquivoGerado.close()
 
     # Calcula porcentagens
-    pocentagem = calculaPortcentagem(tagsGerado, tagsOriginal)
+    porcentagemNormal = calculaPortcentagem(tagsGerado, tagsOriginal)
     porcentagemFormatado = calculaPortcentagem(tagsGeradoFormatado, tagsOriginalFormatado)
 
     #Escreve arquivo
     
     
-    outputDictWriter.writerow({'Projeto': nomeProjeto, 'Arquivo': nomeArquivoOriginal, 'TagsOriginal': tagsOriginal, 'TagsOriginalFormatado': tagsOriginalFormatado, 'TagsGerado': tagsGerado, 'TagsGeradoFormatado': tagsGeradoFormatado})
+    outputDictWriter.writerow({'Projeto': nomeProjeto, 'Arquivo': nomeArquivoOriginal, 'TagsOriginal': tagsOriginal, 'TagsOriginalFormatado': tagsOriginalFormatado, 'TagsGerado': tagsGerado, 'TagsGeradoFormatado': tagsGeradoFormatado, 'PorgentagemNormal': porcentagemNormal, 'PorcentagemFormatado': porcentagemFormatado })
 
 
 
@@ -105,7 +105,7 @@ arquivoEntrada = open(
 numero = 0
 
 outputFile = open('output.csv', 'w', newline='')
-outputDictWriter = csv.DictWriter(outputFile, ['Projeto', 'Arquivo', 'TagsOriginal', 'TagsGerado', 'TagsOriginalFormatado',  'TagsGeradoFormatado'])
+outputDictWriter = csv.DictWriter(outputFile, ['Projeto', 'Arquivo', 'TagsOriginal', 'TagsGerado', 'PorgentagemNormal', 'TagsOriginalFormatado',  'TagsGeradoFormatado', 'PorcentagemFormatado'])
 outputDictWriter.writeheader()
 
 for linha in arquivoEntrada:
