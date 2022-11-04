@@ -1,8 +1,9 @@
 import os
 import re
+import csv
 from pathlib import Path
 
-def avaliaReact(pastaBaseOriginal, nomeArquivoOriginal, pastaBaseGerado, nomeArquivoGerado):
+def avaliaReact(pastaBaseOriginal, nomeArquivoOriginal, pastaBaseGerado, nomeArquivoGerado, nomeProjeto, outputFile):
     tagsOriginal = 0
     tagsOriginalFormatado = 0
     tagsGerado = 0
@@ -74,6 +75,12 @@ def avaliaReact(pastaBaseOriginal, nomeArquivoOriginal, pastaBaseGerado, nomeArq
     tagsGeradoFormatado = len(matchesGerado)
     arquivoGerado.close()
 
+    #Escreve arquivo
+    
+    outputDictWriter = csv.DictWriter(outputFile, ['Projeto', 'Arquivo', 'TagsOriginal', 'TagsOriginalFormatado', 'TagsGerado', 'TagsGeradoFormatado'])
+    outputDictWriter.writeheader()
+    outputDictWriter.writerow({'Projeto': nomeProjeto, 'Arquivo': nomeArquivoOriginal, 'TagsOriginal': tagsOriginal, 'TagsOriginalFormatado': tagsOriginalFormatado, 'TagsGerado': tagsGerado, 'TagsGeradoFormatado': tagsGeradoFormatado})
+
 
 
 
@@ -88,6 +95,8 @@ def avaliaAngular(arquivo):
 arquivoEntrada = open(
     "/home/administrador/Documentos/Python/automate/mestrado/Lista.txt", "r", newline='')
 numero = 0
+
+outputFile = open('output.csv', 'w', newline='')
 
 for linha in arquivoEntrada:
     linhaSplit = linha.split(";")
@@ -110,11 +119,11 @@ for linha in arquivoEntrada:
                         nomeGerado = Path(os.path.join(foldernameGerado, filenameGer))
                         if nomeOrigem.stem.lower() == nomeGerado.stem.lower():
                             if (linguagem == "React" and (filename.endswith(".js") or filename.endswith(".jsx"))):
-                                avaliaReact(foldername, filename, foldernameGerado, filenameGer)
+                                avaliaReact(foldername, filename, foldernameGerado, filenameGer, nomeProjeto, outputFile=outputFile)
 
 
 arquivoEntrada.close()
-
+outputFile.close()
 
 """
 import pyperclip, re
