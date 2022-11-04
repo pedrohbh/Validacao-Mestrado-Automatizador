@@ -62,7 +62,9 @@ for linha in arquivoEntrada:
             for filename in filenames:
                 for foldernameGerado, subfoldersGerado, filenamesGerado in os.walk(pastaGerado):
                     for filenameGer in filenamesGerado:
-                        if str(filename).split(".")[ 0 ].lower == str(filenameGer).split(".")[ 0 ].lower:
+                        nomeOrigem = Path(os.path.join(foldername, filename))
+                        nomeGerado = Path(os.path.join(foldernameGerado, filenameGer))
+                        if nomeOrigem.stem.lower() == nomeGerado.stem.lower():
                             if (linguagem == "React" and (filename.endswith(".js") or filename.endswith(".jsx"))):
                                 avaliaReact(foldername, filename)
 
