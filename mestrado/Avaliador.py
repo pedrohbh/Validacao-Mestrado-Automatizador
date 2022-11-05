@@ -6,6 +6,9 @@ from pathlib import Path
 def calculaPortcentagem(gerado, total):
     return round((gerado / total) * 100, 2)
 
+def calculaMedia(lista):
+    return round((sum(lista) / len(lista)),2)
+
 def avaliaReact(pastaBaseOriginal, nomeArquivoOriginal, pastaBaseGerado, nomeArquivoGerado, nomeProjeto, outputDictWriter):
     tagsOriginal = 0
     tagsOriginalFormatado = 0
@@ -146,6 +149,15 @@ for linha in arquivoEntrada:
                         if nomeOrigem.stem.lower() == nomeGerado.stem.lower():
                             if (linguagem == "React" and (filename.endswith(".js") or filename.endswith(".jsx"))):
                                 avaliaReact(foldername, filename, foldernameGerado, filenameGer, nomeProjeto, outputDictWriter)
+
+
+mediaTagsOriginal = calculaMedia(mediaTagsOriginal)
+mediaTagsGerado = calculaMedia(mediaTagsGerado)
+mediaTagsOriginalFormatado = calculaMedia(mediaTagsOriginalFormatado)
+mediaTagsGeradoFormatado = calculaMedia(mediaTagsGeradoFormatado)
+mediaPorcentagemNormal = str(calculaMedia(mediaPorcentagemNormal)) + "%"
+mediaPorcentagemFormatado = str(calculaMedia(mediaPorcentagemFormatado)) + "%"
+
 
 
 arquivoEntrada.close()
