@@ -82,14 +82,20 @@ def avaliaReact(pastaBaseOriginal, nomeArquivoOriginal, pastaBaseGerado, nomeArq
 
     # Calcula porcentagens
     porcentagemNormal = calculaPortcentagem(tagsGerado, tagsOriginal)
+    mediaPorcentagemNormal.append(porcentagemNormal)
     porcentagemNormal = str(porcentagemNormal) + "%"
 
     porcentagemFormatado = calculaPortcentagem(tagsGeradoFormatado, tagsOriginalFormatado)
+    mediaPorcentagemFormatado.append(porcentagemFormatado)
     porcentagemFormatado = str(porcentagemFormatado) + "%"
 
-    #Escreve arquivo
-    
-    
+    # Adiciona valores
+    mediaTagsOriginal.append(tagsOriginal)
+    mediaTagsOriginalFormatado.append(tagsOriginalFormatado)
+    mediaTagsGerado.append(tagsGerado)
+    mediaTagsGeradoFormatado.append(tagsGeradoFormatado)    
+
+    #Escreve arquivo    
     outputDictWriter.writerow({'Projeto': nomeProjeto, 'Arquivo': nomeArquivoOriginal, 'TagsOriginal': tagsOriginal, 'TagsOriginalFormatado': tagsOriginalFormatado, 'TagsGerado': tagsGerado, 'TagsGeradoFormatado': tagsGeradoFormatado, 'PorgentagemNormal': porcentagemNormal, 'PorcentagemFormatado': porcentagemFormatado })
 
 
