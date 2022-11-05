@@ -158,6 +158,8 @@ mediaTagsGeradoFormatado = calculaMedia(mediaTagsGeradoFormatado)
 mediaPorcentagemNormal = str(calculaMedia(mediaPorcentagemNormal)) + "%"
 mediaPorcentagemFormatado = str(calculaMedia(mediaPorcentagemFormatado)) + "%"
 
+outputDictWriter.writerow({'Projeto': "Média", 'Arquivo': "Média", 'TagsOriginal': mediaTagsOriginal, 'TagsOriginalFormatado': mediaTagsOriginalFormatado, 'TagsGerado': mediaTagsGerado, 'TagsGeradoFormatado': mediaTagsGeradoFormatado, 'PorgentagemNormal': mediaPorcentagemNormal, 'PorcentagemFormatado': mediaPorcentagemFormatado })
+
 
 
 arquivoEntrada.close()
