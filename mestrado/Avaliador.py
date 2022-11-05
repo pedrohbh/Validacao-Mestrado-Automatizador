@@ -105,7 +105,14 @@ def avaliaAngular(arquivo):
 
 arquivoEntrada = open(
     "/home/administrador/Documentos/Python/automate/mestrado/Lista.txt", "r", newline='')
-numero = 0
+
+# Variáveis para as médias
+mediaTagsOriginal = []
+mediaTagsGerado = []
+mediaPorcentagemNormal = []
+mediaTagsOriginalFormatado = []
+mediaTagsGeradoFormatado = []
+mediaPorcentagemFormatado = []
 
 outputFile = open('output.csv', 'w', newline='')
 outputDictWriter = csv.DictWriter(outputFile, ['Projeto', 'Arquivo', 'TagsOriginal', 'TagsGerado', 'PorgentagemNormal', 'TagsOriginalFormatado',  'TagsGeradoFormatado', 'PorcentagemFormatado'])
