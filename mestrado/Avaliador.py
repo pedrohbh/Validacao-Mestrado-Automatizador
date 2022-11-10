@@ -149,6 +149,9 @@ for linha in arquivoEntrada:
                         if nomeOrigem.stem.lower() == nomeGerado.stem.lower():
                             if (linguagem == "React" and (filename.endswith(".js") or filename.endswith(".jsx"))):
                                 avaliaReact(foldername, filename, foldernameGerado, filenameGer, nomeProjeto, outputDictWriter)
+                            elif (linguagem == "Angular" and (filename.endswith(".html") or filename.endswith(".ts"))):
+                                avaliaReact(foldername, filename, foldernameGerado, filenameGer, nomeProjeto, outputDictWriter)
+
 
 
 mediaTagsOriginal = calculaMedia(mediaTagsOriginal)
