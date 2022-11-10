@@ -8,4 +8,15 @@ Virtual Pool,entrar.js,25,7,28.0%,13,4,30.77%
 Virtual Pool,index.js,20,7,35.0%,11,4,36.36%
 Virtual Pool,ranking.js,31,15,48.39%,16,8,50.0%
 Virtual Pool,jogar.js,30,17,56.67%,18,9,50.0%
-Média,Média,31.78,14.33,45.34%,17.33,7.56,43.85%
+Ufes Sports,footer.component.html,19,6,31.58%,11,3,27.27%
+Ufes Sports,header.component.html,18,8,44.44%,9,4,44.44%
+Ufes Sports,showevent.component.html,32,18,56.25%,16,9,56.25%
+Ufes Sports,login.component.html,24,15,62.5%,13,12,92.31%
+Ufes Sports,signup.component.html,40,15,37.5%,23,12,52.17%
+Ufes Sports,config.component.html,4,2,50.0%,2,2,100.0%
+Ufes Sports,student.component.html,32,22,68.75%,16,11,68.75%
+Ufes Sports,sport.component.html,39,23,58.97%,20,13,65.0%
+Ufes Sports,createevent.component.html,49,20,40.82%,27,15,55.56%
+Ufes Sports,myevent.component.html,26,14,53.85%,13,7,53.85%
+Ufes Sports,home.component.html,18,8,44.44%,9,4,44.44%
+Média,Média,29.35,14.0,47.86%,15.75,8.0,52.73%

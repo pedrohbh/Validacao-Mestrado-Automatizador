@@ -39,7 +39,7 @@ def avaliaReact(pastaBaseOriginal, nomeArquivoOriginal, pastaBaseGerado, nomeArq
     tagsOriginal = len(matchesOriginal)
 
     # Remoção das duplicatas
-    regexTagsASeremRemovidas = re.compile(r'<(\s*)/(\w*)(\s*)>')
+    regexTagsASeremRemovidas = re.compile(r'<(\s*)/([^>]*)>')
     matchesOriginal = [
         i for i in matchesOriginal if not regexTagsASeremRemovidas.match(i)]
 
@@ -149,7 +149,7 @@ for linha in arquivoEntrada:
                         if nomeOrigem.stem.lower() == nomeGerado.stem.lower():
                             if (linguagem == "React" and (filename.endswith(".js") or filename.endswith(".jsx"))):
                                 avaliaReact(foldername, filename, foldernameGerado, filenameGer, nomeProjeto, outputDictWriter)
-                            elif (linguagem == "Angular" and (filename.endswith(".html") or filename.endswith(".ts"))):
+                            elif (linguagem == "Angular" and filename.endswith(".html")):
                                 avaliaReact(foldername, filename, foldernameGerado, filenameGer, nomeProjeto, outputDictWriter)
 
 
