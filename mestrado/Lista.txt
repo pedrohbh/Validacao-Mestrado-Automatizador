@@ -2,3 +2,5 @@ Virtual Pool;React;/home/administrador/gitValidacao/2021-VirtualPool/Front end/s
 components/Header
 pages
 ;;;;
+Ufes Sports;Angular;/home/administrador/gitValidacao/2021-UFESports/Front/src;/home/administrador/gitValidacao/2021-UFESports/gerado/src/main/webapp
+;;;;
