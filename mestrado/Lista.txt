@@ -6,6 +6,6 @@ Ufes Sports;Angular;/home/administrador/gitValidacao/2021-UFESports/Front/src;/h
 app/components
 app/pages
 ;;;;
-Feira na Mao;Angular;/home/administrador/gitValidacao/2020-feiranamao/frontend/src;/home/administrador/gitValidacao/2021-UFESports/gerado/src/main/webapp
+FeiranaMao;Angular;/home/administrador/gitValidacao/2020-feiranamao/frontend/src;/home/administrador/gitValidacao/2020-feiranamao/gerado/src/main/webapp
 app
 ;;;;
