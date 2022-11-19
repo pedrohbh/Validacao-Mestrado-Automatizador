@@ -12,3 +12,6 @@ app
 TasteUfes;VueJS;/home/administrador/gitValidacao/2020-TasteUfes/app/ClientApp/src;/home/administrador/gitValidacao/2020-TasteUfes/gerado/src/main/webapp
 components
 ;;;;
+UMDB;React;/home/administrador/gitValidacao/2020-UMDb/umdb-app-client/src;/home/administrador/gitValidacao/2020-UMDb/gerado/src/main/webapp
+components
+;;;;
