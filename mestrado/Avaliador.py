@@ -31,7 +31,7 @@ def avaliaReact(pastaBaseOriginal, nomeArquivoOriginal, pastaBaseGerado, nomeArq
 
     if ( linguagem == "VueJS"):
         regexVueJS = re.compile(r'<\s*template\s*>.*<\s*/\s*template\s*>', re.DOTALL)
-        textoOriginal = regexVueJS.findall(textoOriginal)
+        textoOriginal = regexVueJS.findall(textoOriginal)[ 0 ]
 
     matchesOriginal = []
 
@@ -66,6 +66,10 @@ def avaliaReact(pastaBaseOriginal, nomeArquivoOriginal, pastaBaseGerado, nomeArq
     # Filtragem do Texto Inicial
     #regexSeta = re.compile(r"=>")
     textoGerado = regexSeta.sub("", textoGerado)
+
+    if ( linguagem == "VueJS"):
+        regexVueJS = re.compile(r'<\s*template\s*>.*<\s*/\s*template\s*>', re.DOTALL)
+        textoGerado = regexVueJS.findall(textoGerado)[ 0 ]
 
     matchesGerado = []
 
