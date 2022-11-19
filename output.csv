@@ -47,9 +47,9 @@ TasteUfes,NutritionFactsTable.vue,58,52,89.66%,31,26,83.87%
 TasteUfes,RecipeData.vue,56,50,89.29%,30,25,83.33%
 UMDB,Footer.js,6,4,66.67%,3,2,66.67%
 UMDB,MovieSuggestion.js,16,9,56.25%,9,5,55.56%
-UMDB,App.js,28,11,39.29%,25,6,24.0%
+UMDB,App.js,28,57,203.57%,25,29,116.0%
 UMDB,SingleReview.js,11,7,63.64%,6,4,66.67%
-UMDB,MovieInfo.js,43,11,25.58%,22,6,27.27%
+UMDB,MovieInfo.js,43,17,39.53%,22,9,40.91%
 UMDB,AdminInternalHeader.js,8,5,62.5%,4,3,75.0%
 UMDB,MovieCard.js,14,16,114.29%,8,8,100.0%
 UMDB,AdminContainer.js,9,9,100.0%,5,5,100.0%
@@ -58,4 +58,4 @@ UMDB,DefaultForm.js,10,8,80.0%,6,5,83.33%
 UMDB,AdminSidebar.js,10,10,100.0%,5,5,100.0%
 UMDB,Filter.js,33,31,93.94%,20,16,80.0%
 UMDB,HomeContainer.js,14,14,100.0%,8,8,100.0%
-Média,Média,28.54,15.66,61.03%,15.31,8.64,62.85%
+Média,Média,28.54,16.54,64.05%,15.31,9.08,64.64%
