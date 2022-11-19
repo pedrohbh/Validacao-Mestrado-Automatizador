@@ -155,6 +155,8 @@ for linha in arquivoEntrada:
                                 avaliaReact(foldername, filename, foldernameGerado, filenameGer, nomeProjeto, outputDictWriter)
                             elif (linguagem == "Angular" and filename.endswith(".html")):
                                 avaliaReact(foldername, filename, foldernameGerado, filenameGer, nomeProjeto, outputDictWriter)
+                            elif (linguagem == "VueJS" and filename.endswith(".vue")):
+                                avaliaReact(foldername, filename, foldernameGerado, filenameGer, nomeProjeto, outputDictWriter)
 
 
 
