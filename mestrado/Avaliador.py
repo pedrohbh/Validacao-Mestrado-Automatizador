@@ -8,7 +8,8 @@ def calculaPortcentagem(gerado, total):
 
 def calculaMediana(lista):
     n = len(lista)
-    lista_calculo = lista.copy().sort()
+    lista_calculo = lista.copy()
+    lista_calculo.sort()
     mediana = 0
 
     if n % 2 == 0:
@@ -17,7 +18,7 @@ def calculaMediana(lista):
         mediana = (mediana1 + mediana2) / 2
     else:
         mediana = lista_calculo[n//2]
-    return mediana
+    return round(mediana, 2)
 
 def calculaMedia(lista):
     return round((sum(lista) / len(lista)),2)
@@ -175,6 +176,14 @@ for linha in arquivoEntrada:
                                 avaliaReact(foldername, filename, foldernameGerado, filenameGer, nomeProjeto, outputDictWriter)
 
 
+medianaTagsOriginal = mediaTagsOriginal.copy()
+medianaTagsGerado = mediaTagsGerado.copy()
+medianaTagsOriginalFormatado = mediaTagsOriginalFormatado.copy()
+medianaTagsGeradoFormatado = mediaTagsGeradoFormatado.copy()
+medianaPorcentagemNormal = mediaPorcentagemNormal.copy()
+medianaPorcentagemFormatado = mediaPorcentagemFormatado.copy()
+
+
 
 mediaTagsOriginal = calculaMedia(mediaTagsOriginal)
 mediaTagsGerado = calculaMedia(mediaTagsGerado)
@@ -185,6 +194,16 @@ mediaPorcentagemFormatado = str(calculaMedia(mediaPorcentagemFormatado)) + "%"
 
 outputDictWriter.writerow({'Projeto': "Média", 'Arquivo': "Média", 'TagsOriginal': mediaTagsOriginal, 'TagsOriginalFormatado': mediaTagsOriginalFormatado, 'TagsGerado': mediaTagsGerado, 'TagsGeradoFormatado': mediaTagsGeradoFormatado, 'PorgentagemNormal': mediaPorcentagemNormal, 'PorcentagemFormatado': mediaPorcentagemFormatado })
 
+# Cálculo Mediana
+
+medianaTagsOriginal = calculaMediana(medianaTagsOriginal)
+medianaTagsGerado = calculaMediana(medianaTagsGerado)
+medianaTagsOriginalFormatado = calculaMediana(medianaTagsOriginalFormatado)
+medianaTagsGeradoFormatado = calculaMediana(medianaTagsGeradoFormatado)
+medianaPorcentagemNormal = str(calculaMediana(medianaPorcentagemNormal)) + "%"
+medianaPorcentagemFormatado = str(calculaMediana(medianaPorcentagemFormatado)) + "%"
+
+outputDictWriter.writerow({'Projeto': "Mediana", 'Arquivo': "Mediana", 'TagsOriginal': medianaTagsOriginal, 'TagsOriginalFormatado': medianaTagsOriginalFormatado, 'TagsGerado': medianaTagsGerado, 'TagsGeradoFormatado': medianaTagsGeradoFormatado, 'PorgentagemNormal': medianaPorcentagemNormal, 'PorcentagemFormatado': medianaPorcentagemFormatado })
 
 
 arquivoEntrada.close()
