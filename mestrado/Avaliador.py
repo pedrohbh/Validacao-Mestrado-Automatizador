@@ -6,6 +6,19 @@ from pathlib import Path
 def calculaPortcentagem(gerado, total):
     return round((gerado / total) * 100, 2)
 
+def calculaMediana(lista):
+    n = len(lista)
+    lista_calculo = lista.copy().sort()
+    mediana = 0
+
+    if n % 2 == 0:
+        mediana1 = lista_calculo[n // 2]
+        mediana2 = lista_calculo[n // 2 - 1]
+        mediana = (mediana1 + mediana2) / 2
+    else:
+        mediana = lista_calculo[n//2]
+    return mediana
+
 def calculaMedia(lista):
     return round((sum(lista) / len(lista)),2)
 
