@@ -15,3 +15,7 @@ components
 UMDB;React;/home/administrador/gitValidacao/2020-UMDb/umdb-app-client/src;/home/administrador/gitValidacao/2020-UMDb/gerado/src/main/webapp
 components
 ;;;;
+UfesPay;React;/home/administrador/gitValidacao/2020-UfesPay/ufespay-frontend/src;/home/administrador/gitValidacao/2020-UfesPay/gerado/src/main/webapp
+components
+views
+;;;;
