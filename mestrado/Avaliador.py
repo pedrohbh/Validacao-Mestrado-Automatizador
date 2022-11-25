@@ -168,7 +168,7 @@ for linha in arquivoEntrada:
                         nomeOrigem = Path(os.path.join(foldername, filename))
                         nomeGerado = Path(os.path.join(foldernameGerado, filenameGer))
                         if nomeOrigem.stem.lower() == nomeGerado.stem.lower():
-                            if (linguagem == "React" and (filename.endswith(".js") or filename.endswith(".jsx"))):
+                            if (linguagem == "React" and (filename.endswith(".js") or filename.endswith(".jsx") or filename.endswith(".tsx"))):
                                 avaliaReact(foldername, filename, foldernameGerado, filenameGer, nomeProjeto, outputDictWriter)
                             elif (linguagem == "Angular" and filename.endswith(".html")):
                                 avaliaReact(foldername, filename, foldernameGerado, filenameGer, nomeProjeto, outputDictWriter)
