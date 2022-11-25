@@ -19,3 +19,6 @@ UfesPay;React;/home/administrador/gitValidacao/2020-UfesPay/ufespay-frontend/src
 components
 views
 ;;;;
+ClassiWeb;React;/home/administrador/gitValidacao/2020-ClassiWeb/frontend/src;/home/administrador/gitValidacao/2020-ClassiWeb/gerado/src/main/webapp
+components
+;;;;
