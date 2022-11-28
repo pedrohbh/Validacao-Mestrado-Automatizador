@@ -85,5 +85,10 @@ ClassiWeb,Address.tsx,8,8,100.0%,5,5,100.0%
 ClassiWeb,Carousel.tsx,8,10,125.0%,5,5,100.0%
 ClassiWeb,ProductState.tsx,1,2,200.0%,1,1,100.0%
 ClassiWeb,AppBar.tsx,43,28,65.12%,25,14,56.0%
-Média,Média,24.63,15.34,72.31%,13.45,8.48,70.15%
-Mediana,Mediana,19.5,10.0,65.37%,11.0,5.0,66.67%
+ClassiWeb,CategoriesList.tsx,17,7,41.18%,11,4,36.36%
+ClassiWeb,AdminPanel.tsx,11,10,90.91%,6,5,83.33%
+ClassiWeb,CategoriesList.tsx,7,7,100.0%,4,4,100.0%
+ClassiWeb,Ad.tsx,104,90,86.54%,58,47,81.03%
+ClassiWeb,Feedback.tsx,8,4,50.0%,5,2,40.0%
+Média,Média,24.89,15.79,72.38%,13.64,8.69,70.04%
+Mediana,Mediana,18,10,65.62%,11,5,66.67%
