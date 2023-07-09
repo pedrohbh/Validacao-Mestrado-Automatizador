@@ -68,7 +68,7 @@ UfesPay,menuitem.js,8,8,100.0%,4,4,100.0%
 UfesPay,layout.jsx,5,5,100.0%,3,3,100.0%
 UfesPay,navitem.js,4,4,100.0%,2,2,100.0%
 UfesPay,transferencia.js,6,2,33.33%,3,1,33.33%
-UfesPay,menu.js,8,11,137.5%,4,7,175.0%
+UfesPay,menu.js,8,5,62.5%,4,4,100.0%
 UfesPay,transfercard.jsx,49,43,87.76%,27,23,85.19%
 UfesPay,landingpage.jsx,4,4,100.0%,3,3,100.0%
 UfesPay,transfer.jsx,24,21,87.5%,15,14,93.33%
@@ -90,5 +90,5 @@ ClassiWeb,AdminPanel.tsx,11,10,90.91%,6,5,83.33%
 ClassiWeb,CategoriesList.tsx,7,7,100.0%,4,4,100.0%
 ClassiWeb,Ad.tsx,104,90,86.54%,58,47,81.03%
 ClassiWeb,Feedback.tsx,8,4,50.0%,5,2,40.0%
-Média,Média,24.89,15.7,72.07%,13.64,8.65,69.86%
-Mediana,Mediana,18,10,65.62%,11,5,66.67%
+Média,Média,24.89,15.64,71.25%,13.64,8.62,69.04%
+Mediana,Mediana,18,10,65.12%,11,5,66.67%
